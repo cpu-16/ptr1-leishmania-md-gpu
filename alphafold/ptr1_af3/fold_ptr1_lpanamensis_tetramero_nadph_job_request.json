@@ -1,0 +1,24 @@
+[{
+ "name": "PTR1_Lpanamensis_tetramero_NADPH",
+ "modelSeeds": [
+  "2048746557"
+ ],
+ "sequences": [
+  {
+   "proteinChain": {
+    "sequence": "MMSVATVPVALVTAAAKRLGCGIAEILHAQGYAVCLHYHRSAEDANTLAATLNSRRPNSAIAVQADLSAIATASVSNAHGAAPISLVQRCAGLVDACYNHWGRCDVLVNNASAYYPTPLLNKDEEGHEPSMNEETEAAAAADLFGTNALAPFFLIKAFAQRVADIPAEQRSDNYSIVNMIDAMTNQPLLGFTMYTMAKEALEGLTRSAALELAPLQVRVNGVSPGLSLFPADMPSAVQADYRSKVPLYQRESTAEEVAAVVFFLCSSSAKYITGTCVKVDGGYSLTRA",
+    "count": 4,
+    "useStructureTemplate": true
+   }
+  },
+  {
+   "ligand": {
+    "ligand": "CCD_NDP",
+    "count": 4
+   }
+  }
+ ],
+ "dialect": "alphafoldserver",
+ "version": 3
+}
+]
