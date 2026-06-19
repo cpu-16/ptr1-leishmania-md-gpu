@@ -1,0 +1,27 @@
+# Datos pesados e intermedios (no versionar)
+results/
+results_test/
+results_scan/
+data/*.pdb
+
+# Trayectorias y estados de OpenMM / Amber
+*.dcd
+*.chk
+*.xtc
+*.prmtop
+*.inpcrd
+*.rst7
+*.nc
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Entornos
+.conda/
+venv/
+.venv/
+
+# Sistema
+.DS_Store

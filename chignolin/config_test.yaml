@@ -1,0 +1,55 @@
+# ============================================================================
+#  Config de PRUEBA RÁPIDA (smoke test): valores mínimos para verificar que
+#  TODO el flujo corre en minutos, antes de lanzar una corrida larga.
+#  Los resultados NO son científicamente significativos; solo prueban el código.
+#
+#  Uso:  python src/prepare_system.py    --config config_test.yaml
+#        python src/adaptive_sampling.py --config config_test.yaml
+#        python src/analysis_rmsd.py     --config config_test.yaml
+#        python src/build_msm.py         --config config_test.yaml
+# ============================================================================
+
+# === Sistema / proteína ===
+input_pdb:  data/5awl.pdb
+native_pdb: data/5awl.pdb
+ph: 7.0
+
+# === Campo de fuerzas y solvatación ===
+forcefield: ["amber14-all.xml", "amber14/tip3p.xml"]
+water_model: tip3p
+solvent_padding_nm: 1.0
+ionic_strength_M: 0.15
+nonbonded_cutoff_nm: 1.0
+
+# === Integrador / termodinámica ===
+hydrogen_mass_amu: 4.0
+timestep_ps: 0.004
+temperature_K: 340
+pressure_bar: 1.0
+friction_per_ps: 1.0
+
+# === Plataforma ===
+platform: CUDA
+precision: mixed
+
+# === Equilibración (corta para la prueba) ===
+equilibration_ns: 0.1          # 100 ps, solo para que no falle
+
+# === Producción mínima ===
+traj_length_ns: 1              # 1 ns por trayectoria
+save_interval_ps: 10
+trajectories_per_round: 2      # solo 2 trayectorias
+rounds: 1                      # 1 ronda  (total = 2 ns)
+parallel_workers: 1
+
+# === Análisis MSM (reducido para tan pocos datos) ===
+tica_lag: 2
+tica_dim: 2
+n_clusters: 15
+msm_lag: 3
+folded_rmsd_nm: 0.15
+
+# === Rutas (separadas de la corrida real para no mezclar) ===
+prep_dir: results_test/prep
+traj_dir: results_test/trajectories
+msm_dir:  results_test/msm

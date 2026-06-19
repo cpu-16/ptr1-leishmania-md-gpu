@@ -1,0 +1,21 @@
+# Entorno de conda para el proyecto. Crear con:
+#     conda env create -f environment.yml
+#     conda activate jic-folding
+#
+# Nota: usamos Python 3.11 porque OpenMM/deeptime aún no soportan 3.14.
+# OpenMM de conda-forge trae el soporte CUDA para tu GPU NVIDIA.
+name: jic-folding
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - openmm            # motor de dinámica molecular (con CUDA)
+  - pdbfixer          # limpiar/reparar estructuras PDB
+  - mdtraj            # leer trayectorias, RMSD, features
+  - deeptime          # TICA, clustering y Markov State Models
+  - numpy
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - pyyaml
+  - pip

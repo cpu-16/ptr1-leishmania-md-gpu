@@ -1,0 +1,51 @@
+# ============================================================================
+#  Configuración central del proyecto JIC — plegamiento de Chignolin
+#  Edita SOLO este archivo para cambiar parámetros. Todos los scripts lo leen.
+# ============================================================================
+
+# === Sistema / proteína ===
+input_pdb:  data/5awl.pdb     # Chignolin (variante CLN025), estructura de partida
+native_pdb: data/5awl.pdb     # estructura experimental de referencia (para RMSD)
+ph: 7.0
+
+# === Campo de fuerzas y solvatación ===
+forcefield: ["amber14-all.xml", "amber14/tip3p.xml"]  # proteína + agua
+water_model: tip3p
+solvent_padding_nm: 1.0        # margen de agua alrededor de la proteína
+ionic_strength_M: 0.15         # ~fisiológico (añade iones Na+/Cl-)
+nonbonded_cutoff_nm: 1.0
+
+# === Integrador / termodinámica ===
+hydrogen_mass_amu: 4.0         # HMR: reparte masa a los H -> permite paso de 4 fs
+timestep_ps: 0.004             # 4 fs (baja a 0.002 = 2 fs si hay inestabilidad)
+temperature_K: 340             # ~Tm de CLN025: maximiza ver plegado<->desplegado
+pressure_bar: 1.0
+friction_per_ps: 1.0
+
+# === Plataforma de cálculo ===
+platform: CUDA                 # CUDA (tu RTX 4060) | OpenCL | CPU
+precision: mixed               # mixed = buen balance velocidad/precisión en GPU
+
+# === Equilibración (paso 1) ===
+equilibration_ns: 1.0
+
+# === Producción / muestreo (pasos 2-3) ===
+traj_length_ns: 15             # longitud de CADA trayectoria corta (= unidad de trabajo)
+save_interval_ps: 20           # guarda un frame cada 20 ps
+trajectories_per_round: 10     # cuántas trayectorias por ronda
+rounds: 3                      # 3 rondas adaptativas. TOTAL = 15*10*3 = 450 ns (~1-2 días en RTX 4060)
+parallel_workers: 1            # 1 por GPU. En varias máquinas, cada una corre su parte.
+# Para acumular MÁS muestreo después: sube solo "rounds" (p. ej. a 6) y vuelve a
+# correr adaptive_sampling.py — las trayectorias ya hechas se omiten automáticamente.
+
+# === Análisis MSM (paso 4) — unidades en "frames guardados" ===
+tica_lag: 5
+tica_dim: 4
+n_clusters: 75                 # microestados (ajustado al primer muestreo de ~450 ns)
+msm_lag: 10                    # lag del MSM (en frames); ~200 ps con save_interval=20
+folded_rmsd_nm: 0.15           # umbral RMSD (nm) para considerar "plegado"
+
+# === Rutas de salida ===
+prep_dir: results/prep
+traj_dir: results/trajectories
+msm_dir:  results/msm
