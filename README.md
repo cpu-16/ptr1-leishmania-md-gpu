@@ -115,6 +115,26 @@ la reacción química); **modelo por homología** (no una estructura nueva); Chi
 
 ---
 
+## 🌍 ¿Para qué sirve esto?
+
+Es un trabajo **metodológico y demostrativo**: el valor está en el _enfoque_, no en un
+hallazgo clínico. El mismo flujo —abierto, reproducible y de bajo costo— puede servir para:
+
+- **Democratizar la biología estructural computacional**: hacer MD seria con una GPU de
+  consumo, sin necesidad de un centro de supercómputo.
+- **Enfermedades desatendidas de la región** (leishmaniasis, Chagas, malaria): caracterizar
+  la estabilidad y la flexibilidad de sus proteínas blanco como **punto de partida**, sobre
+  todo cuando aún no existe una estructura experimental.
+- **Base para trabajo futuro** (por ejemplo, cribado virtual o diseño de variantes), que
+  **no formó parte de este estudio**.
+- **Plantilla reproducible** que otros estudiantes y laboratorios pueden adaptar a sus
+  propias proteínas.
+
+> Este proyecto **no** propone un fármaco ni un tratamiento; ofrece un método accesible y
+> honesto para **empezar** a estudiar estos sistemas.
+
+---
+
 ## 📁 Estructura del repositorio
 
 ```
