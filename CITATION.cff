@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "Si usas este software, sus figuras o sus modelos, cita este repositorio y el artículo asociado (JIC 2026, en evaluación)."
+title: "De AlphaFold a la dinámica molecular accesible en una GPU de consumo: calibración con Chignolin y aplicación a la PTR1 de Leishmania panamensis"
+abstract: >-
+  Flujo abierto y reproducible de dinámica molecular en una sola GPU de consumo
+  (NVIDIA RTX 4060) con software libre para biología estructural computacional,
+  calibrado con la mini-proteína Chignolin y aplicado a la enzima PTR1 de
+  Leishmania panamensis, contrastado con la predicción estructural de AlphaFold 2 y 3.
+type: software
+authors:
+  - name: "Equipo del proyecto (anonimizado para la evaluación ciega de la JIC 2026)"
+date-released: "2026-06-19"
+license: MIT
+keywords:
+  - molecular dynamics
+  - OpenMM
+  - AlphaFold
+  - Leishmania panamensis
+  - PTR1
+  - Chignolin
+  - Markov state model
+  - consumer GPU
