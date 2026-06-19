@@ -36,6 +36,45 @@ En corto: con recursos al alcance de un estudiante se obtienen **modelos estruct
 
 ---
 
+## 🧭 El flujo del estudio
+
+Un mismo método accesible (azul) se **calibra** con Chignolin (teal) y luego se **aplica**
+a la PTR1 (ámbar), cerrando con una triangulación estructural de cuatro vías:
+
+```mermaid
+flowchart TB
+    MET["Método accesible: 1x RTX 4060, OpenMM, software libre"]
+
+    subgraph CAL["Calibración: Chignolin"]
+        direction TB
+        C1["Estructura experimental"] --> C2["MD 450 ns"]
+        C2 --> C3["Recupera la estructura: RMSD 0.15 A<br/>a la par de AlphaFold2"]
+        C2 --> C4["Cinética no medible a 340 K"]
+    end
+
+    subgraph APP["Aplicación: PTR1 de L. panamensis"]
+        direction TB
+        P1["AlphaFold DB + cristal 1E92"] --> P2["Tetrámero holo por homología + NADPH"]
+        P2 --> P3["MD 100 ns"]
+        P3 --> P4["Sitio activo intacto: tríada 83-100%"]
+        P3 --> P5["Controles in silico: variantes Tyr114"]
+        P4 --> P6["Triangulación sub-1 A:<br/>cristal, homología, MD, AF3"]
+    end
+
+    MET -.-> CAL
+    MET -.-> APP
+    CAL ==>|valida el método| APP
+
+    classDef cal fill:#E8F4F2,stroke:#2A9D8F,color:#1F2D4E;
+    classDef app fill:#FBF0DC,stroke:#E9A23B,color:#1F2D4E;
+    classDef met fill:#1F2D4E,stroke:#1F2D4E,color:#FFFFFF;
+    class C1,C2,C3,C4 cal;
+    class P1,P2,P3,P4,P5,P6 app;
+    class MET met;
+```
+
+---
+
 ## 🎬 Animaciones de las simulaciones (`media/`)
 
 | Chignolin — plegada (MD) | PTR1 — tetrámero holo, 100 ns (MD) |
