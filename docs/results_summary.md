@@ -22,7 +22,7 @@ proyecto cuantifica, no un resultado fallido.
 | Sistema | tetrámero holo, **114 856 átomos** | + NADPH + sustrato |
 | Identidad de secuencia vs _L. major_ | 73.9 % | plantilla cristalográfica 1E92 |
 | MD de producción | **100 ns** | RMSD Cα ≈ 2.0 Å (estable) |
-| Tríada catalítica conservada | **85–100 %** | en los 4 protómeros (la red ampliada, con Arg17, baja a 83 %) |
+| Tríada catalítica conservada | **85–100 %** | en los 4 protómeros (la red ampliada, con Arg18, baja a 83 %) |
 | Distancia de hidruro | 3.8–4.0 Å | geometría compatible ≠ actividad |
 | MD vs cristal 1E92 | 1.05 Å | convergencia, **no** validación ciega |
 | AF3 vs MD / AF3 vs 1E92 | 0.73 / 0.28 Å | AF3 usó cristales como plantilla |

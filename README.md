@@ -27,7 +27,7 @@ humano, cuya estructura aún no se ha determinado experimentalmente.
 |---:|:---|
 | **0.85 Å** | la estructura representativa de la MD frente a la experimental, contra **0.90 Å** de AlphaFold2 (mediana del conjunto: 0.91 Å) |
 | **100 ns** | tetrámero holo de PTR1 **estable**, con ligandos retenidos y el sitio activo intacto |
-| **85–100 %** | conservación de la tríada catalítica Ser111–Tyr193–Lys197 en los **4 protómeros** |
+| **85–100 %** | conservación de la tríada catalítica Ser112–Tyr194–Lys198 en los **4 protómeros** |
 | **< 1 Å** | **convergencia de cuatro vías independientes**: cristal 1E92 · modelo ensamblado · MD · AlphaFold3 |
 | **1× RTX 4060** | todo el estudio en una GPU de consumo (~US$300), con **100 % software libre** |
 

@@ -30,7 +30,7 @@ Requiere las estructuras de partida (monómero de AlphaFold DB + cristal **1E92*
 Los scripts de `ptr1/src/` usan `BASE = "."` (ejecutar desde `ptr1/` o ajustar `BASE`):
 
 ```
-build_tetramer.py            # tetrámero holo por homología sobre 1E92
+build_tetramer.py            # tetrámero holo ensamblado por superposición sobre 1E92
 parametrize_nadph.sh / parametrize_hbi.sh / build_nadph.py   # cofactores
 equilibrate_system.py → produce_md.py                        # 100 ns
 analyze_md.py · convergencia_bloques.py · figura_correlacion_hbond_dcat.py

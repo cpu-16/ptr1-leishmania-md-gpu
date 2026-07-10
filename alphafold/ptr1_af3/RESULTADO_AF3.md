@@ -1,4 +1,4 @@
-# Validación AlphaFold 3 — PTR1 tetrámero holo de *L. panamensis*
+# Validación AlphaFold 3: PTR1 tetrámero holo de *L. panamensis*
 
 **Job:** `PTR1_Lpanamensis_tetramero_NADPH` (alphafoldserver.com, 31 may 2026)
 **Entrada:** 4×288 residuos (UniProt A0A088SA10) + 4× NADPH (CCD_NDP). Modelo de mayor confianza: `model_0`.
@@ -16,18 +16,18 @@
 (El alineamiento del tetrámero completo falla por la simetría de las 4 cadenas idénticas; el monómero es la comparación válida.)
 
 ## Interpretación HONESTA (caveat clave)
-AF3 **usó como plantillas 4 estructuras cristalográficas de PTR1**: **1E92, 2XOX, 1P33, 1E7W** (confirmado en `extracted/templates/`). Por tanto la predicción **NO es a ciegas** — AF3 conocía el pliegue y el sitio del cofactor de PTR1, incluido el propio 1E92.
+AF3 **usó como plantillas 4 estructuras cristalográficas de PTR1**: **1E92, 2XOX, 1P33, 1E7W** (confirmado en `extracted/templates/`). Por tanto la predicción **NO es a ciegas**: AF3 conocía el pliegue y el sitio del cofactor de PTR1, incluido el propio 1E92.
 
 **Lo que SÍ vale (consistencia / triangulación):**
-- Nuestro modelo homólogo + 100 ns de MD **se mantuvo consistente** con lo que AF3 predice usando las mejores plantillas experimentales (RMSD 0.73 Å). → la MD no derivó a algo artificial.
+- Nuestro modelo ensamblado + 100 ns de MD **se mantuvo consistente** con lo que AF3 predice usando las mejores plantillas experimentales (RMSD 0.73 Å). → la MD no derivó a algo artificial.
 - Nuestro **NADPH trasplantado** (0.9 Å de AF3, 0.3 Å del cristal) está **bien colocado**. → valida el montaje del cofactor.
 - El **tetrámero** se ensambla con confianza (ipTM 0.95).
-- Cuatro vías convergen a <1 Å: cristal 1E92 + modelo homólogo + MD + AF3. Argumento de robustez para la JIC.
+- Cuatro vías convergen a <1 Å: cristal 1E92 + modelo ensamblado + MD + AF3. Argumento de robustez para la JIC.
 
 **Lo que NO vale:**
 - NO es validación *independiente* (AF3 usó 1E92 como plantilla; la coincidencia es esperada).
 - NO prueba nada nuevo sobre rasgos específicos de *panamensis* (Tyr114, etc.) más allá de lo que plantilla+secuencia ya implican.
 
-**Conclusión:** chequeo de consistencia *aprobado* — el modelo es sólido y de calidad publicable, pero presentarlo como "convergencia con solapamiento de método", no como confirmación a ciegas.
+**Conclusión:** chequeo de consistencia *aprobado*: el modelo es sólido y de calidad publicable, pero presentarlo como "convergencia con solapamiento de método", no como confirmación a ciegas.
 
 Figura: `af3_vs_cristal_monomero.png`.

@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 Minimización + equilibración escalonada del sistema PTR1 (tetrámero + 4 NADPH +
-4 HBI) en OpenMM/CUDA. Protocolo conservador para un MODELO HOMÓLOGO (75% id.)
+4 HBI) en OpenMM/CUDA. Protocolo conservador para un MODELO ENSAMBLADO, no por homología
+(monómero de AlphaFold DB montado sobre el cristal 1E92; 75% id.)
 con contactos de interfaz ajustados y loops AF no validados por cristal
 (recomendación de la verificación cruzada con Codex).
 
@@ -100,7 +101,7 @@ def main():
 
     # restraint sobre backbone (Cα,C,N,O) + ligandos pesados, k modulable.
     # Las cadenas laterales quedan libres desde el inicio -> relajan los clashes
-    # del modelo homólogo; el backbone protege el plegamiento.
+    # del modelo ensamblado; el backbone protege el plegamiento.
     fidx, force = make_restraint(system, pos0, select(prm.topology, "backbone_lig"), 100.0)
 
     # plataforma con fallback

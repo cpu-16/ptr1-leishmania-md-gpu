@@ -3,7 +3,7 @@
 Análisis de la MD de PTR1 (tetrámero + 4 NADPH + 4 HBI) con cpptraj + matplotlib.
 
 Calcula y grafica:
-  - RMSD Cα: global y por cadena (estabilidad del modelo homólogo).
+  - RMSD Cα: global y por cadena (estabilidad del modelo ensamblado).
   - RMSF por residuo (flexibilidad; señala loops AF y extremos).
   - RMSD de cada ligando (NADPH y HBI) tras alinear la proteína → ¿se salen del bolsillo?
   - Distancia catalítica de transferencia de hidruro C4N(NADPH)↔C6(HBI) por sitio.

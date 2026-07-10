@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Regenera las figuras del ARTÍCULO JIC SIN títulos embebidos.
 
-Atiende las sugerencias del Dr. Llanes sobre formato de figuras (la convención
+Atiende las sugerencias del asesor sobre formato de figuras (la convención
 RIC/JIC es que el título va en el PIE de figura, no dentro de la imagen, y que
 los multipaneles se rotulan con letras A/B/C/D y se describen en el pie):
 
@@ -107,11 +107,15 @@ def figura_superposicion():
 #   Datos finales en red_catalitica_resumen.txt (100 ns, tetrámero holo).
 # --------------------------------------------------------------------------- #
 def figura_heatmap():
+    # Numeración UniProt de L. panamensis (A0A088SA10), la misma de `system.pdb`.
+    # ⚠️ Hasta el 10 jul 2026 estas filas decían Ser111/Tyr193/Lys197/Arg17: eran los
+    # índices 0-based de mdtraj, uno menos que el número de residuo. Los residuos
+    # físicos siempre fueron los correctos; sólo el rótulo estaba corrido.
     filas = [
-        "Ser111·N2 (sustrato)",
-        "Tyr193·N8 (catalítica)",
-        "Lys197·ribosa-NADP",
-        "Arg17·2'-P NADPH",
+        "Ser112·N2 (sustrato)",
+        "Tyr194·N8 (catalítica)",
+        "Lys198·ribosa-NADP",
+        "Arg18·2'-P NADPH",
         "NADPH·N1 (cofactor-sust.)",
     ]
     cols = ["sitio A", "sitio B", "sitio C", "sitio D"]

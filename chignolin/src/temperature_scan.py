@@ -1,8 +1,12 @@
 #!/usr/bin/env python
 """Escaneo de temperatura para encontrar dónde Chignolin se pliega Y se despliega.
 
-A 340 K (NPT) la variante CLN025 quedó 99.5% plegada (sobre-estabilizada por el
-campo de fuerzas) -> casi no se desplegó -> no se puede medir la cinética.
+A 340 K (NPT) la variante CLN025 quedó 99.5% plegada -> casi no se desplegó ->
+no se puede medir la cinética.
+
+⚠️ NO concluir de aquí que el campo de fuerzas sobre-estabiliza el plegado. Esa
+afirmación se retractó el 9 jul 2026: trayectorias cortas que arrancan plegadas se
+quedan plegadas con casi cualquier campo de fuerzas.
 Este script prueba varias temperaturas (en NVT, volumen fijo, para evitar que el
 agua "hierva" a T alta), corre una trayectoria corta en cada una y mide la
 fracción plegada. Sirve para elegir la T del estudio cinético principal:

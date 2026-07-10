@@ -4,14 +4,17 @@
 Genera, con PyMOL (ray-traced, fondo blanco, antialias):
   1) ptr1_tetramero.png      -> homotetrámero holo (4 subunidades + NADPH + sustrato)
   2) ptr1_sitio_activo.png   -> sitio activo (cadena A): Tyr114 específica de especie
-                                sobre el sustrato + tríada catalítica Ser111/Tyr193/Lys197
+                                sobre el sustrato + tríada catalítica Ser112/Tyr194/Lys198
   3) ptr1_superpos_1e92.png  -> superposición del modelo MD vs cristal 1E92 (RMSD 1.05 Å)
 
 Paleta del póster: proteína en TEAL (#2A9D8F); cofactor NADPH en ÁMBAR (#E9A23B);
 sustrato HBI en magenta para contraste; cristal de referencia en gris.
 
-Etiquetas en numeración del ARTÍCULO (UniProt): la Tyr de especie es resi 113 en el PDB
-= "Tyr114"; la tríada resi 111/193/197 = Ser111/Tyr193/Lys197 (igual que el heatmap).
+⚠️ NUMERACIÓN (aclarado el 10 jul 2026). El PDB de vista `md_final_holo_chains.pdb` estaba
+renumerado en −1, así que ahí la Tyr de especie es `resi 113` y la tríada `resi 111/193/197`.
+En `system.pdb` (la topología que se simuló) y en UniProt de *L. panamensis* esos mismos
+residuos son **Tyr114** y la tríada **Ser112–Tyr194–Lys198**, y la arginina es **Arg18**.
+Los residuos físicos siempre fueron los correctos; lo que estaba corrido era el rótulo.
 
 Uso:  pymol -cq src/render_figuras_poster_ptr1.py
 """
@@ -71,8 +74,19 @@ cmd.color("teal_p", "pan and chain A")
 cmd.show("sticks", "pan and chain A and (resn HBI or resn NPH)")
 cmd.color("hotpink", "pan and chain A and resn HBI")
 cmd.color("amber_p", "pan and chain A and resn NPH")
-# Tríada catalítica Ser111/Tyr193/Lys197 (contexto, azul grisáceo apagado)
-triada = "pan and chain A and resi 111+193+197"
+# Tríada catalítica Ser112/Tyr194/Lys198 en UniProt. Los `resi 111+193+197` de abajo son
+# los del PDB de vista, que estaba renumerado en -1. Ver el aviso del docstring.
+# Se selecciona por número Y por nombre de residuo: si el PDB trae otra numeración
+# (p. ej. `system.pdb`, donde 111/193/197 son ALA/MET/ALA), la selección sale vacía y el
+# script aborta, en vez de colorear el residuo equivocado sin decir nada.
+triada = ("pan and chain A and ((resi 111 and resn SER) or (resi 193 and resn TYR) "
+          "or (resi 197 and resn LYS))")
+if cmd.count_atoms(triada) == 0:
+    raise SystemExit(
+        "\n🔴 La tríada no se encontró con `resi 111+193+197`.\n"
+        "   Este PDB usa otra numeración. En `system.pdb` (UniProt) es 112/194/198.\n"
+        "   Ver el aviso de NUMERACIÓN en el docstring.\n"
+    )
 cmd.show("sticks", triada)
 cmd.color("slate", triada)
 # Tyr114 específica de especie (resi 113): destacada en azul intenso (protagonista)
