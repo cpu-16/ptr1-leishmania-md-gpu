@@ -3,14 +3,17 @@
 
 A 340 K (NPT) la variante CLN025 quedó 99.5% plegada -> casi no se desplegó ->
 no se puede medir la cinética.
-
-⚠️ NO concluir de aquí que el campo de fuerzas sobre-estabiliza el plegado. Esa
-afirmación se retractó el 9 jul 2026: trayectorias cortas que arrancan plegadas se
-quedan plegadas con casi cualquier campo de fuerzas.
 Este script prueba varias temperaturas (en NVT, volumen fijo, para evitar que el
 agua "hierva" a T alta), corre una trayectoria corta en cada una y mide la
 fracción plegada. Sirve para elegir la T del estudio cinético principal:
 la mejor es la más cercana a ~50% plegada (allí hay muchas transiciones).
+
+⚠️ NO concluir de aquí que el campo de fuerzas sobre-estabiliza el plegado. Esa
+afirmación se retractó el 9 jul 2026. Trayectorias cortas que arrancan plegadas se
+quedan plegadas con casi cualquier campo de fuerzas, y además el volumen fijo de
+este barrido impone ~200 bar de sobrepresión: rehecho en NPT (check_ensemble_400K.py),
+Chignolin a 400 K **sí** se despliega (27.5 % nativa). Este barrido, por tanto, es
+metodología para elegir T, no evidencia sobre el campo de fuerzas.
 
 Uso:
     python src/temperature_scan.py
@@ -94,4 +97,5 @@ def main():
     print(f"\nRECOMENDADA_PARA_CINETICA {best} K  (mas cercana a 50% plegada)")
 
 
-main()
+if __name__ == "__main__":
+    main()

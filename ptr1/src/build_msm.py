@@ -1,10 +1,11 @@
 #!/usr/bin/env python
-"""PASO 4 — Construir el Markov State Model (MSM) y sacar la CINÉTICA.
+"""PASO 4: construir el Markov State Model (MSM) a partir de las trayectorias.
 
-Este es el aporte científico central: a partir de muchas trayectorias cortas,
-el MSM estima los estados metaestables, sus poblaciones (termodinámica) y los
-tiempos de transición entre plegado y desplegado (CINÉTICA) — justo lo que
-AlphaFold y los emuladores de IA NO dan.
+El MSM estima los estados metaestables y sus poblaciones (termodinámica). Cuando
+hay transiciones suficientes entre plegado y desplegado, también da los tiempos
+medios de transición (cinética); si el muestreo no las cubre, el MSM solo separa
+subestados del plegado y esos tiempos NO representan la cinética real (ver la
+advertencia automática más abajo).
 
 Flujo: features (distancias Cα) -> TICA -> clustering -> MSM -> PCCA+ (macroestados)
        -> poblaciones + tiempo de plegamiento (MFPT).
@@ -16,6 +17,7 @@ deeptime >= 0.4.
 Uso:
     python src/build_msm.py
 """
+import argparse
 import glob
 import os
 
@@ -41,7 +43,11 @@ def ca_distance_features(traj):
 
 
 def main():
-    cfg = load_config()
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--config", default="config.yaml")
+    args = ap.parse_args()
+
+    cfg = load_config(args.config)
     top = os.path.join(cfg["prep_dir"], "system.pdb")
     os.makedirs(cfg["msm_dir"], exist_ok=True)
 
@@ -96,15 +102,19 @@ def main():
         all_rmsd[all_dtrajs == k].mean() if np.any(all_dtrajs == k) else np.nan
         for k in range(cfg["n_clusters"])
     ])
-    # macroestado plegado = el que contiene el microestado de menor RMSD
-    folded_micro = np.nanargmin(micro_rmsd)
-    folded_macro = micro_assign[folded_micro]
+    # active[i] es el SÍMBOLO original del microestado en el índice interno i del
+    # submodelo conexo del MSM. micro_assign (PCCA+) y pops están indexados por ese
+    # índice interno i, no por el símbolo original: hay que traducir símbolo -> i.
+    active = list(msm.count_model.state_symbols)
+    internal_rmsd = np.array([micro_rmsd[s] for s in active])   # RMSD por índice interno
+    # macroestado plegado = el que contiene el microestado (superviviente) de menor RMSD
+    folded_internal = int(np.nanargmin(internal_rmsd))
+    folded_macro = micro_assign[folded_internal]
 
-    active = msm.count_model.state_symbols          # microestados en el MSM
-    folded_set = [i for i, s in enumerate(active) if micro_assign[s] == folded_macro]
-    unfolded_set = [i for i, s in enumerate(active) if micro_assign[s] != folded_macro]
+    folded_set = [i for i in range(len(active)) if micro_assign[i] == folded_macro]
+    unfolded_set = [i for i in range(len(active)) if micro_assign[i] != folded_macro]
 
-    p_folded = pops[[i for i in range(len(active)) if micro_assign[active[i]] == folded_macro]].sum()
+    p_folded = pops[folded_set].sum()
     print(f"      Población PLEGADA estimada: {p_folded:.1%}")
 
     # tiempos medios de primer paso (cinética): desplegado->plegado y vuelta
@@ -126,12 +136,21 @@ def main():
         print("      muestreo (o mayor T / partir de desplegado) para medir la cinética.")
 
     # --- guardar resumen y una gráfica de timescales ---
+    # Si >90% está plegado, el MFPT no es cinética real (ver advertencia): NO lo
+    # persistimos como un número válido, para que nadie reutilice cifras retractadas.
+    kinetics_valid = rmsd_folded_frac <= 0.90
     with open(os.path.join(cfg["msm_dir"], "resumen.txt"), "w") as f:
         f.write(f"Trayectorias: {len(dcds)}\n")
         f.write(f"Timescales (ns): {its_ns}\n")
         f.write(f"Poblacion plegada: {p_folded:.4f}\n")
-        f.write(f"MFPT plegamiento (ns): {mfpt_fold:.1f}\n")
-        f.write(f"MFPT desplegamiento (ns): {mfpt_unfold:.1f}\n")
+        f.write(f"Fraccion de frames plegados (RMSD): {rmsd_folded_frac:.4f}\n")
+        if kinetics_valid:
+            f.write(f"MFPT plegamiento (ns): {mfpt_fold:.1f}\n")
+            f.write(f"MFPT desplegamiento (ns): {mfpt_unfold:.1f}\n")
+        else:
+            f.write("MFPT plegamiento (ns): NA (muestreo insuficiente: >90% de los "
+                    "frames plegado; el MSM separa subestados del plegado, no la cinetica real)\n")
+            f.write("MFPT desplegamiento (ns): NA (idem)\n")
 
     plt.figure()
     plt.bar(range(1, len(its_ns) + 1), its_ns)
