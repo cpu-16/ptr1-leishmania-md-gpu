@@ -27,7 +27,7 @@ humano, cuya estructura aún no se ha determinado experimentalmente.
 |---:|:---|
 | **0.85 Å** | la estructura representativa de la MD frente a la experimental, contra **0.90 Å** de AlphaFold2 (mediana del conjunto: 0.91 Å) |
 | **100 ns** | tetrámero holo de PTR1 **estable**, con ligandos retenidos y el sitio activo intacto |
-| **85–100 %** | conservación de la tríada catalítica Asp181–Tyr194–Lys198 en los **4 protómeros** (la Ser112 es de unión de sustrato, no catalítica) |
+| **85–100 %** | conservación de la red de contactos del sitio activo (sustrato, cofactor y las catalíticas Tyr194/Lys198) en los **4 protómeros** |
 | **< 1 Å** | **convergencia de cuatro vías independientes**: cristal 1E92 · modelo ensamblado · MD · AlphaFold3 |
 | **1× RTX 4060** | todo el estudio en una GPU de consumo (~US$300), con **100 % software libre** |
 
@@ -56,7 +56,7 @@ flowchart TB
         direction TB
         P1["AlphaFold DB + cristal 1E92"] --> P2["Tetrámero holo ensamblado + NADPH"]
         P2 --> P3["MD 100 ns"]
-        P3 --> P4["Sitio activo intacto: tríada 85-100%"]
+        P3 --> P4["Sitio activo intacto: red 83-100%"]
         P3 --> P5["Controles in silico: variantes Tyr114"]
         P4 --> P6["Triangulación sub-1 A:<br/>cristal, modelo, MD, AF3"]
     end
@@ -134,8 +134,8 @@ cuidado con que delimita lo que **no** afirma.
 **PTR1 de _L. panamensis_: aplicación**
 - Modelo estructural: monómero de AlphaFold DB ensamblado en **tetrámero holo** sobre el cristal
   **1E92** (_L. major_, 73.9 % de identidad) + NADPH + sustrato. **114 856 átomos**.
-- **100 ns** estables (RMSD Cα ≈ 2.0 Å); ligandos retenidos; **tríada catalítica
-  conservada 85–100 %** en los cuatro sitios; distancia de hidruro **≈ 3.8–4.0 Å**
+- **100 ns** estables (RMSD Cα ≈ 2.0 Å); ligandos retenidos; **red de contactos del sitio activo
+  conservada 83–100 %** en los cuatro sitios; distancia de hidruro **≈ 3.8–4.0 Å**
   («geometría compatible con la catálisis», _no_ actividad).
 - **Convergencia estructural** (no validación ciega): MD vs 1E92 **1.05 Å**; AF3 vs MD
   0.73 Å y AF3 vs 1E92 0.28 Å: cuatro caminos a < 1 Å (ver sección AlphaFold).
