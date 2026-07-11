@@ -4,7 +4,7 @@
 Genera, con PyMOL (ray-traced, fondo blanco, antialias):
   1) ptr1_tetramero.png      -> homotetrámero holo (4 subunidades + NADPH + sustrato)
   2) ptr1_sitio_activo.png   -> sitio activo (cadena A): Tyr114 específica de especie
-                                sobre el sustrato + tríada catalítica Ser112/Tyr194/Lys198
+                                sobre el sustrato + tríada catalítica Asp181/Tyr194/Lys198 (Ser112 = unión)
   3) ptr1_superpos_1e92.png  -> superposición del modelo MD vs cristal 1E92 (RMSD 1.05 Å)
 
 Paleta del póster: proteína en TEAL (#2A9D8F); cofactor NADPH en ÁMBAR (#E9A23B);
@@ -13,7 +13,8 @@ sustrato HBI en magenta para contraste; cristal de referencia en gris.
 ⚠️ NUMERACIÓN (aclarado el 10 jul 2026). El PDB de vista `md_final_holo_chains.pdb` estaba
 renumerado en −1, así que ahí la Tyr de especie es `resi 113` y la tríada `resi 111/193/197`.
 En `system.pdb` (la topología que se simuló) y en UniProt de *L. panamensis* esos mismos
-residuos son **Tyr114** y la tríada **Ser112–Tyr194–Lys198**, y la arginina es **Arg18**.
+residuos son **Tyr114** y la tríada catalítica **Asp181–Tyr194–Lys198** (la Ser112 es de unión de
+sustrato, no catalítica), y la arginina es **Arg18**.
 Los residuos físicos siempre fueron los correctos; lo que estaba corrido era el rótulo.
 
 Uso:  pymol -cq src/render_figuras_poster_ptr1.py
@@ -74,8 +75,10 @@ cmd.color("teal_p", "pan and chain A")
 cmd.show("sticks", "pan and chain A and (resn HBI or resn NPH)")
 cmd.color("hotpink", "pan and chain A and resn HBI")
 cmd.color("amber_p", "pan and chain A and resn NPH")
-# Tríada catalítica Ser112/Tyr194/Lys198 en UniProt. Los `resi 111+193+197` de abajo son
-# los del PDB de vista, que estaba renumerado en -1. Ver el aviso del docstring.
+# OJO: la tríada CATALÍTICA de PTR1 es Asp181/Tyr194/Lys198 (la Ser112 es de unión de sustrato, NO
+# catalítica; corregido 11 jul 2026). La selección de abajo resalta SER/TYR/LYS (`resi 111+193+197`
+# del PDB de vista, renumerado en -1) = la tríada VIEJA con la Ser. Si re-generas la figura, sustituye
+# la Ser por el Asp catalítico. Ver el aviso del docstring.
 # Se selecciona por número Y por nombre de residuo: si el PDB trae otra numeración
 # (p. ej. `system.pdb`, donde 111/193/197 son ALA/MET/ALA), la selección sale vacía y el
 # script aborta, en vez de colorear el residuo equivocado sin decir nada.
