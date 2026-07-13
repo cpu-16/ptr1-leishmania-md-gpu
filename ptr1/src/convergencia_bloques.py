@@ -72,7 +72,7 @@ def main():
     # (0,0) RMSD Cα: crudo + media acumulada
     ax[0, 0].plot(rmsd_t, rmsd, color="#9ecae1", lw=0.6, label="RMSD por frame")
     ax[0, 0].plot(rmsd_t, running_mean(rmsd), color="#08519c", lw=2, label="media acumulada")
-    ax[0, 0].set_title("RMSD Cα global — convergencia")
+    ax[0, 0].set_title("RMSD Cα global - convergencia")
     ax[0, 0].set_xlabel("tiempo (ns)"); ax[0, 0].set_ylabel("RMSD (Å)")
     ax[0, 0].legend(fontsize=8); ax[0, 0].grid(alpha=0.3)
 
@@ -88,7 +88,7 @@ def main():
     colors = {"A": "#e41a1c", "B": "#377eb8", "C": "#4daf4a", "D": "#984ea3"}
     for s in CHAINS:
         ax[1, 0].plot(dt_ns, running_mean(dcat[s]), color=colors[s], lw=1.8, label=f"sitio {s}")
-    ax[1, 0].set_title("Distancia catalítica C4N–C6 — media acumulada")
+    ax[1, 0].set_title("Distancia catalítica C4N–C6 - media acumulada")
     ax[1, 0].set_xlabel("tiempo (ns)"); ax[1, 0].set_ylabel("distancia (Å)")
     ax[1, 0].set_ylim(3.2, 5.2); ax[1, 0].legend(fontsize=8, ncol=2); ax[1, 0].grid(alpha=0.3)
 
@@ -106,7 +106,7 @@ def main():
     ax[1, 1].set_xlabel("bloque (ns)"); ax[1, 1].set_ylabel("distancia media (Å)")
     ax[1, 1].set_ylim(3.2, 5.2); ax[1, 1].legend(fontsize=8, ncol=2); ax[1, 1].grid(axis="y", alpha=0.3)
 
-    fig.suptitle("Convergencia del muestreo — producción WT 100 ns (1 réplica, RTX 4060)", fontsize=12)
+    fig.suptitle("Convergencia del muestreo - producción WT 100 ns (RTX 4060)", fontsize=12)
     fig.tight_layout(rect=[0, 0, 1, 0.97])
     png = os.path.join(AN, "convergencia_bloques.png")
     fig.savefig(png, dpi=140); plt.close(fig)

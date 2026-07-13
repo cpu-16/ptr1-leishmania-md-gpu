@@ -92,7 +92,7 @@ def main():
 
         os.system("clear")
         print("=" * 54)
-        print("  MONITOR — muestreo (mini Folding@Home)")
+        print("  MONITOR - muestreo (muchas trayectorias cortas independientes)")
         print("=" * 54)
         print(f"Config: {args.config}")
         cur = f" | en curso al {max(partial)/ns_each*100:.0f}%" if (running and ns_each) else ""

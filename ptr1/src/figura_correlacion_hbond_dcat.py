@@ -169,7 +169,7 @@ def main():
     ax.set_xticks(ticks)
     ax.set_xticklabels(ticklab)
     ax.set_ylabel("Distancia catalítica C4N(NADPH)–C6(sustrato)  [Å]")
-    ax.set_title("Geometría catalítica según el anclaje Tyr114·O10 — WT 100 ns (1 réplica)\n"
+    ax.set_title("Geometría del sitio activo según el anclaje Tyr114·O10 - WT 100 ns (control)\n"
                  "azul = H-bond presente (ON)   ·   gris = ausente (OFF)", fontsize=10)
     from matplotlib.patches import Patch
     ax.legend(handles=[Patch(facecolor="#2c7fb8", label="H-bond ON"),

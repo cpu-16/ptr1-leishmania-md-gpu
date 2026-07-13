@@ -27,7 +27,7 @@ humano, cuya estructura aún no se ha determinado experimentalmente.
 |---:|:---|
 | **0.85 Å** | la estructura representativa de la MD frente a la experimental, contra **0.90 Å** de AlphaFold2 (mediana del conjunto: 0.91 Å) |
 | **100 ns** | tetrámero holo de PTR1 **estable**, con ligandos retenidos y el sitio activo intacto |
-| **85–100 %** | conservación de la red de contactos del sitio activo (sustrato, cofactor y las catalíticas Tyr194/Lys198) en los **4 protómeros** |
+| **83–100 %** | conservación de la red de contactos del sitio activo (sustrato, cofactor y las catalíticas Tyr194/Lys198) en los **4 protómeros** |
 | **< 1 Å** | **convergencia de cuatro vías independientes**: cristal 1E92 · modelo ensamblado · MD · AlphaFold3 |
 | **1× RTX 4060** | todo el estudio en una GPU de consumo (~US$300), con **100 % software libre** |
 
@@ -134,9 +134,10 @@ cuidado con que delimita lo que **no** afirma.
 **PTR1 de _L. panamensis_: aplicación**
 - Modelo estructural: monómero de AlphaFold DB ensamblado en **tetrámero holo** sobre el cristal
   **1E92** (_L. major_, 73.9 % de identidad) + NADPH + sustrato. **114 856 átomos**.
-- **100 ns** estables (RMSD Cα ≈ 2.0 Å); ligandos retenidos; **red de contactos del sitio activo
-  conservada 83–100 %** en los cuatro sitios; distancia de hidruro **≈ 3.8–4.0 Å**
-  («geometría compatible con la catálisis», _no_ actividad).
+- **4 réplicas de 100 ns** (semillas independientes); el esqueleto y el anclaje de NADPH se
+  repiten entre réplicas (RMSD Cα monomérico 1.70–2.12 Å), pero los contactos con el sustrato
+  varían (en la réplica 3 un sitio se aleja a 16.7 Å); la **red de contactos del sitio activo
+  se conserva 83–100 %** en los cuatro sitios («geometría compatible con la catálisis», _no_ actividad).
 - **Convergencia estructural** (no validación ciega): MD vs 1E92 **1.05 Å**; AF3 vs MD
   0.73 Å y AF3 vs 1E92 0.28 Å: cuatro caminos a < 1 Å (ver sección AlphaFold).
 - La Tyr114 de _L. panamensis_ (sustitución F114Y respecto a _L. major_) parece formar un
@@ -148,7 +149,7 @@ Resumen tabulado de métricas y caveats en [`docs/results_summary.md`](docs/resu
 ## ⚖️ Alcance honesto
 
 Los límites se declaran de frente, son parte del rigor y no una nota al pie:
-**una réplica por condición** (sin estadística entre réplicas); **MD clásica** (no modela
+**una réplica en los controles mutantes** (la variante natural tiene 4 réplicas independientes); **MD clásica** (no modela
 la reacción química); **modelo estructural ensamblado** (no una estructura experimental); y
 el hecho de que a 340 K Chignolin no se despliegue en 15 ns **no permite concluir que el
 campo de fuerza la sobre-estabilice**: trayectorias cortas que parten del estado plegado se

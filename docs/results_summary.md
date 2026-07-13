@@ -21,14 +21,14 @@ proyecto cuantifica, no un resultado fallido.
 |---|---|---|
 | Sistema | tetrámero holo, **114 856 átomos** | + NADPH + sustrato |
 | Identidad de secuencia vs _L. major_ | 73.9 % | plantilla cristalográfica 1E92 |
-| MD de producción | **100 ns** | RMSD Cα ≈ 2.0 Å (estable) |
+| MD de producción | **4 réplicas × 100 ns** | RMSD Cα monomérico 1.70–2.12 Å; esqueleto estable y reproducible |
 | Red del sitio activo conservada | **83–100 %** | contactos de sustrato, cofactor y catalíticas Tyr194/Lys198, en los 4 protómeros |
-| Distancia de hidruro | 3.8–4.0 Å | geometría compatible ≠ actividad |
+| Contactos con el sustrato | variables entre réplicas | réplica 3: un sitio se aleja a 16.7 Å; geometría compatible ≠ actividad |
 | MD vs cristal 1E92 | 1.05 Å | convergencia, **no** validación ciega |
 | AF3 vs MD / AF3 vs 1E92 | 0.73 / 0.28 Å | AF3 usó cristales como plantilla |
 | Mutantes _in silico_ (Y113F, A112S+Y113F) | 30 ns c/u | Tyr114 = contacto accesorio, preliminar |
 
-⚠️ Una réplica por condición. «Geometría compatible» ≠ actividad catalítica. La lectura de
+⚠️ La variante natural tiene 4 réplicas independientes; los controles mutantes, una réplica. «Geometría compatible» ≠ actividad catalítica. La lectura de
 la Tyr114 es preliminar (una réplica).
 
 ⚠️ **Corrección (jul 2026).** Un barrido previo a 400 K corría a volumen constante, con una

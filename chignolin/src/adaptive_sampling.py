@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""PASO 3 — El "mini Folding@Home": reparte muchas trayectorias cortas.
+"""PASO 3 - muestreo distribuido inspirado en Folding@home: reparte muchas trayectorias cortas.
 
 Este es el coordinador. En cada RONDA lanza varias trayectorias independientes
 (llamando a run_md.py) y luego elige desde dónde arrancar la siguiente ronda.
