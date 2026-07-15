@@ -26,8 +26,8 @@ humano, cuya estructura aún no se ha determinado experimentalmente.
 |  |  |
 |---:|:---|
 | **0.85 Å** | la estructura representativa de la MD frente a la experimental, contra **0.90 Å** de AlphaFold2 (mediana del conjunto: 0.91 Å) |
-| **100 ns** | tetrámero holo de PTR1 **estable**, con ligandos retenidos y el sitio activo intacto |
-| **83–100 %** | conservación de la red de contactos del sitio activo (sustrato, cofactor y las catalíticas Tyr194/Lys198) en los **4 protómeros** |
+| **100 ns** | tetrámero holo de PTR1 **estable**, con ligandos retenidos; esqueleto y anclaje de NADPH reproducibles |
+| **75–100 %** | ocupancia de la red de contactos del sitio activo (sustrato, cofactor y las catalíticas Tyr194/Lys198); el contacto con el sustrato **varía entre réplicas** |
 | **< 1 Å** | **convergencia de cuatro vías independientes**: cristal 1E92 · modelo ensamblado · MD · AlphaFold3 |
 | **1× RTX 4060** | todo el estudio en una GPU de consumo (~US$300), con **100 % software libre** |
 
@@ -56,7 +56,7 @@ flowchart TB
         direction TB
         P1["AlphaFold DB + cristal 1E92"] --> P2["Tetrámero holo ensamblado + NADPH"]
         P2 --> P3["MD 100 ns"]
-        P3 --> P4["Sitio activo intacto: red 83-100%"]
+        P3 --> P4["Red del sitio activo 75-100%; sustrato variable"]
         P3 --> P5["Controles in silico: variantes Tyr114"]
         P4 --> P6["Triangulación sub-1 A:<br/>cristal, modelo, MD, AF3"]
     end
@@ -113,7 +113,7 @@ cuidado con que delimita lo que **no** afirma.
 | ✅ Lo que el trabajo **sí** muestra | 🚧 Lo que el trabajo **no** afirma |
 |---|---|
 | La estructura de Chignolin se recupera: representativa **0.85 Å** frente a **0.90 Å** de AlphaFold2 | Que se mida la **cinética** de plegamiento (exige microsegundos) |
-| Un modelo de PTR1 **estable 100 ns**, con el sitio activo intacto | Que el modelo **reemplace** una estructura experimental |
+| Un modelo de PTR1 **estable 100 ns**; esqueleto y anclaje de NADPH reproducibles | Que el modelo **reemplace** una estructura experimental |
 | **Convergencia** de 4 vías independientes a < 1 Å | Que AF3 sea **validación ciega** (usó cristales como plantilla) |
 | Un pipeline **abierto y reproducible** en 1 GPU de consumo | **Actividad** catalítica: «geometría compatible» ≠ actividad |
 | La Tyr114 como **posible** contacto de especie (preliminar) | **Epistasis** ni un rasgo determinante (una sola réplica) |
@@ -137,7 +137,7 @@ cuidado con que delimita lo que **no** afirma.
 - **4 réplicas de 100 ns** (semillas independientes); el esqueleto y el anclaje de NADPH se
   repiten entre réplicas (RMSD Cα monomérico 1.70–2.12 Å), pero los contactos con el sustrato
   varían (en la réplica 3 un sitio se aleja a 16.7 Å); la **red de contactos del sitio activo
-  se conserva 83–100 %** en los cuatro sitios («geometría compatible con la catálisis», _no_ actividad).
+  ocupa 75–100 %** del tiempo en los cuatro sitios («geometría compatible con la catálisis», _no_ actividad).
 - **Convergencia estructural** (no validación ciega): MD vs 1E92 **1.05 Å**; AF3 vs MD
   0.73 Å y AF3 vs 1E92 0.28 Å: cuatro caminos a < 1 Å (ver sección AlphaFold).
 - La Tyr114 de _L. panamensis_ (sustitución F114Y respecto a _L. major_) parece formar un
@@ -197,7 +197,7 @@ hallazgo clínico. El mismo flujo, abierto, reproducible y de bajo costo, puede 
 ├── ptr1/               # Aplicación: PTR1 de L. panamensis (construcción, MD, mutantes, análisis)
 ├── alphafold/          # chignolin_af2/ (ColabFold) · ptr1_af3/ (AlphaFold Server + plantillas)
 ├── media/              # Animaciones de las trayectorias (mp4 + gif)
-├── paper/              # Artículo divulgativo JIC (versión ciega, PDF)
+├── paper/              # Artículo JIC (versión ciega vigente, PDF)
 ├── figures/            # Figuras científicas 300 dpi (ver figures/README.md)
 ├── docs/               # results_summary.md (métricas) · reproducibility.md (cómo correr)
 ├── assets/             # banner del repositorio

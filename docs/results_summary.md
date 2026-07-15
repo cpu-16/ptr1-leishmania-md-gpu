@@ -22,7 +22,7 @@ proyecto cuantifica, no un resultado fallido.
 | Sistema | tetrámero holo, **114 856 átomos** | + NADPH + sustrato |
 | Identidad de secuencia vs _L. major_ | 73.9 % | plantilla cristalográfica 1E92 |
 | MD de producción | **4 réplicas × 100 ns** | RMSD Cα monomérico 1.70–2.12 Å; esqueleto estable y reproducible |
-| Red del sitio activo conservada | **83–100 %** | contactos de sustrato, cofactor y catalíticas Tyr194/Lys198, en los 4 protómeros |
+| Red del sitio activo | **75–100 %** ocupancia | contactos de sustrato, cofactor y catalíticas Tyr194/Lys198; el contacto con el sustrato **varía entre réplicas** |
 | Contactos con el sustrato | variables entre réplicas | réplica 3: un sitio se aleja a 16.7 Å; geometría compatible ≠ actividad |
 | MD vs cristal 1E92 | 1.05 Å | convergencia, **no** validación ciega |
 | AF3 vs MD / AF3 vs 1E92 | 0.73 / 0.28 Å | AF3 usó cristales como plantilla |
