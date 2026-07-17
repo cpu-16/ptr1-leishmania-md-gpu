@@ -2,7 +2,7 @@
 
 > Métricas principales con sus caveats. El relato completo está en el README.
 
-## Chignolin: calibración
+## Chignolin: control estructural
 
 | Métrica | Valor | Nota |
 |---|---|---|

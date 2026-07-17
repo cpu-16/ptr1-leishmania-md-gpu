@@ -45,7 +45,7 @@ ax.text(LX, 212, "Recuperar la estructura de una proteína es accesible.",
 ax.text(LX, 240, "Medir su dinámica completa, todavía no.",
         color=AMBER, fontsize=14.5, fontweight="bold", family="DejaVu Sans", va="center")
 
-ax.text(LX, 286, "Calibración con Chignolin   ·   Aplicación a la PTR1 de Leishmania panamensis",
+ax.text(LX, 286, "Control estructural con Chignolin   ·   Aplicación a la PTR1 de Leishmania panamensis",
         color=INK, fontsize=11.5, family="DejaVu Sans", style="italic", va="center")
 
 ax.text(LX, 366, "OpenMM   ·   AlphaFold 2/3   ·   Markov State Model   ·   1× RTX 4060   ·   software libre",

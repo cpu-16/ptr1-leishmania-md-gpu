@@ -9,7 +9,7 @@ conda env create -f environment.yml && conda activate jic-folding
 Cubre **OpenMM (CUDA), mdtraj y deeptime**. El módulo de PTR1 necesita además **AmberTools**
 (`tleap`, `antechamber`) para parametrizar NADPH/HBI, y **PyMOL** para los renders. Instálalos con `conda install -c conda-forge ambertools pymol-open-source`.
 
-## Chignolin (calibración)
+## Chignolin (control estructural)
 
 ```bash
 cd chignolin

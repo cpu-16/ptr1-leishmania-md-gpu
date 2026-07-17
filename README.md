@@ -45,7 +45,7 @@ a la PTR1 (ámbar), cerrando con una triangulación estructural de cuatro vías:
 flowchart TB
     MET["Método accesible: 1x RTX 4060, OpenMM, software libre"]
 
-    subgraph CAL["Calibración: Chignolin"]
+    subgraph CAL["Control estructural: Chignolin"]
         direction TB
         C1["Estructura experimental"] --> C2["MD 450 ns"]
         C2 --> C3["Recupera la estructura: representativa 0.85 A<br/>AlphaFold2 0.90 A"]
@@ -63,7 +63,7 @@ flowchart TB
 
     MET -.-> CAL
     MET -.-> APP
-    CAL ==>|valida el método| APP
+    CAL -->|mismo montaje, no valida PTR1| APP
 
     classDef cal fill:#E8F4F2,stroke:#2A9D8F,color:#1F2D4E;
     classDef app fill:#FBF0DC,stroke:#E9A23B,color:#1F2D4E;
@@ -123,7 +123,7 @@ cuidado con que delimita lo que **no** afirma.
 
 ## 🔬 Resultados en detalle
 
-**Chignolin: calibración del método**
+**Chignolin: control estructural**
 - 450 ns de MD a 340 K. **Mediana del RMSD 0.91 Å** vs experimental (la estructura
   representativa del ensemble queda a 0.85 Å); **AlphaFold2 0.90 Å**, pLDDT ~94.
   Los dos métodos empatan por debajo de 1 Å.
@@ -193,7 +193,7 @@ hallazgo clínico. El mismo flujo, abierto, reproducible y de bajo costo, puede 
 
 ```
 .
-├── chignolin/          # Calibración (pipeline reproducible, config-driven): prep, muestreo, análisis, MSM
+├── chignolin/          # Control estructural (pipeline reproducible, config-driven): prep, muestreo, análisis, MSM
 ├── ptr1/               # Aplicación: PTR1 de L. panamensis (construcción, MD, mutantes, análisis)
 ├── alphafold/          # chignolin_af2/ (ColabFold) · ptr1_af3/ (AlphaFold Server + plantillas)
 ├── media/              # Animaciones de las trayectorias (mp4 + gif)
