@@ -180,7 +180,7 @@ hallazgo clínico. El mismo flujo, abierto, reproducible y de bajo costo, puede 
   proteínas blanco como **punto de partida**, sobre todo cuando aún no existe una
   estructura experimental.
 - **Base para trabajo futuro**: repetir cada condición con réplicas independientes y
-  abordar la energética con muestreo mejorado.
+  abordar la energética con muestreo mejorado (metadinámica o intercambio de réplicas en un rango acotado de temperatura), y la cinética de unión con métodos de disociación dirigida y datos experimentales de anclaje.
 - **Plantilla reproducible** que otros estudiantes y laboratorios pueden adaptar a sus
   propias proteínas.
 
