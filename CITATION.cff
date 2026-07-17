@@ -4,7 +4,7 @@ title: "De AlphaFold a la dinámica molecular accesible en una GPU de consumo: c
 abstract: >-
   Flujo abierto y reproducible de dinámica molecular en una sola GPU de consumo
   (NVIDIA RTX 4060) con software libre para biología estructural computacional,
-  calibrado con la mini-proteína Chignolin y aplicado a la enzima PTR1 de
+  con control estructural sobre la mini-proteína Chignolin y aplicado a la enzima PTR1 de
   Leishmania panamensis, contrastado con la predicción estructural de AlphaFold 2 y 3.
 type: software
 authors:

@@ -14,7 +14,7 @@ consumo**, sin un centro de supercómputo? Este proyecto de la **Jornada de Inic
 Científica (JIC) 2026** lo pone a prueba: usa **dinámica molecular (MD)** en una **GPU
 NVIDIA RTX 4060** con software libre para ver hasta dónde llega un flujo abierto y
 reproducible de biología estructural computacional con recursos accesibles, y lo contrasta
-con la predicción estructural de **AlphaFold 2 y 3**. Primero lo **calibra** con Chignolin
+con la predicción estructural de **AlphaFold 2 y 3**. Primero lo **comprueba** con Chignolin
 (una mini-proteína de plegamiento conocido) y luego lo **aplica** a la **PTR1 de
 _Leishmania panamensis_**, una enzima clave del parásito, sin equivalente directo en
 humano, cuya estructura aún no se ha determinado experimentalmente.
@@ -38,7 +38,7 @@ En corto: con recursos al alcance de un estudiante se obtienen **modelos estruct
 
 ## 🧭 El flujo del estudio
 
-Un mismo método accesible (azul) se **calibra** con Chignolin (teal) y luego se **aplica**
+Un mismo método accesible (azul) se **comprueba** con Chignolin (teal) y luego se **aplica**
 a la PTR1 (ámbar), cerrando con una triangulación estructural de cuatro vías:
 
 ```mermaid
