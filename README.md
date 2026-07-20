@@ -136,7 +136,7 @@ cuidado con que delimita lo que **no** afirma.
   **1E92** (_L. major_, 73.9 % de identidad) + NADPH + sustrato. **114 856 átomos**.
 - **4 réplicas de 100 ns** (semillas independientes); el esqueleto y el anclaje de NADPH se
   repiten entre réplicas (RMSD Cα monomérico 1.70–2.12 Å), pero los contactos con el sustrato
-  varían (en la réplica 3 un sitio se aleja a 16.7 Å); la **red de contactos del sitio activo
+  varían (en la réplica 3 un sitio queda a 16.7 Å de media); la **red de contactos del sitio activo
   ocupa 75–100 %** del tiempo en los cuatro sitios («geometría compatible con la catálisis», _no_ actividad).
 - **Convergencia estructural** (no validación ciega): MD vs 1E92 **1.05 Å**; AF3 vs MD
   0.73 Å y AF3 vs 1E92 0.28 Å: cuatro caminos a < 1 Å (ver sección AlphaFold).
