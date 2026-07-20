@@ -40,7 +40,7 @@ ax.text(LX, 140, "accesible en una GPU de consumo",
 ax.add_patch(plt.Rectangle((LX, 174), 380, 2.2, color=TEAL))
 
 # Mensaje central: el color codifica el significado
-ax.text(LX, 212, "Recuperar la estructura de una proteína es accesible.",
+ax.text(LX, 212, "Sostener la estructura de una proteína es accesible.",
         color=TEAL, fontsize=14.5, fontweight="bold", family="DejaVu Sans", va="center")
 ax.text(LX, 240, "Medir su dinámica completa, todavía no.",
         color=AMBER, fontsize=14.5, fontweight="bold", family="DejaVu Sans", va="center")

@@ -3,7 +3,7 @@
 Convergencia del muestreo de la producción WT (100 ns) por bloques.
 
 Objetivo (para el póster): mostrar que las observables que sostienen las
-conclusiones —RMSD Cα y distancia catalítica C4N–C6 por sitio— se ESTABILIZAN
+conclusiones -RMSD Cα y distancia catalítica C4N–C6 por sitio- se ESTABILIZAN
 a lo largo de la trayectoria (no hay deriva monótona), apoyando que 100 ns en una
 RTX 4060 dan observables localmente convergidas para las afirmaciones del trabajo.
 
@@ -11,7 +11,9 @@ Lee los .dat ya calculados (no recarga los 2.6 GB de prod.dcd):
   rmsd_all.dat        (#Frame, rms_all[Å])
   dist_cat_mdtraj.dat (ns, dA, dB, dC, dD[Å])  <- la versión corregida con mdtraj/PBC
 
-Métricas de convergencia (descriptivas, honestas — 1 réplica):
+Metricas de convergencia (descriptivas, honestas). OJO: este script analiza UNA corrida.
+La variante natural tiene 4 replicas independientes y la incertidumbre publicada se calcula
+entre esas cuatro, no aqui:
   - media acumulada (running mean): si se aplana -> estable.
   - block averaging en bloques de 20 ns: media±sd por bloque; deriva = |media(2ª
     mitad) − media(1ª mitad)| comparada con la sd intra-bloque.
@@ -120,7 +122,7 @@ def main():
     #  deriva/sd se reporta como contexto (penaliza injustamente sd pequeñas).
     ABS_OK = 0.30      # Å
     T_RELAX = 20.0     # ns descartados como relajación inicial al juzgar estacionariedad
-    L = ["CONVERGENCIA DEL MUESTREO — producción WT 100 ns (1 réplica)",
+    L = ["CONVERGENCIA DEL MUESTREO - produccion WT 100 ns (una corrida; la WT tiene 4 replicas)",
          "=" * 88,
          "Lectura DESCRIPTIVA (no prueba de convergencia estadística): 'estable' = sin deriva",
          f"física grande. Deriva = |media(2ª mitad) − media(1ª mitad)|. Umbral físico {ABS_OK:.2f} Å,",

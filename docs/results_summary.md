@@ -36,4 +36,4 @@ sobrepresión de unos 200 bar. A presión constante y 400 K durante 100 ns, Chig
 despliega** (27.5 % de fotogramas nativos, RMSD hasta 8.5 Å). La fracción nativa a 400 K no es
 estable con una sola trayectoria: dos corridas NVT que solo difieren en la semilla y en la
 equilibración dan 98 % y 47 % sobre los mismos 10 ns. El límite que este trabajo cuantifica es
-el tiempo de simulación acumulable, no el campo de fuerza.
+el diseño de muestreo: trayectorias de 15 ns, todas iniciadas desde el estado plegado.

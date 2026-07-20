@@ -7,7 +7,7 @@
 ![AlphaFold](https://img.shields.io/badge/AlphaFold-2%20%2F%203-0A7E8C)
 ![GPU](https://img.shields.io/badge/GPU-1%C3%97%20RTX%204060-76B900)
 
-> **Una GPU de consumo basta para recuperar la _estructura_ de una proteína; medir su _dinámica_ completa, todavía no.**
+> **Una GPU de consumo basta para sostener la _estructura_ de una proteína; medir su _dinámica_ completa, todavía no.**
 
 ¿Qué biología estructural puede hacer una universidad con **una sola tarjeta gráfica de
 consumo**, sin un centro de supercómputo? Este proyecto de la **Jornada de Iniciación
@@ -28,7 +28,7 @@ humano, cuya estructura aún no se ha determinado experimentalmente.
 | **0.85 Å** | la estructura representativa de la MD frente a la experimental, contra **0.90 Å** de AlphaFold2 (mediana del conjunto: 0.91 Å) |
 | **100 ns** | tetrámero holo de PTR1 **estable**, con ligandos retenidos; esqueleto y anclaje de NADPH reproducibles |
 | **75–100 %** | ocupancia de la red de contactos del sitio activo (sustrato, cofactor y las catalíticas Tyr194/Lys198); el contacto con el sustrato **varía entre réplicas** |
-| **< 1 Å** | **convergencia de cuatro vías independientes**: cristal 1E92 · modelo ensamblado · MD · AlphaFold3 |
+| **< 1 Å** | acuerdo entre cuatro reconstrucciones: cristal 1E92 · modelo ensamblado · MD · AlphaFold3. **No son independientes**: tres pasan por 1E92 |
 | **1× RTX 4060** | todo el estudio en una GPU de consumo (~US$300), con **100 % software libre** |
 
 En corto: con recursos al alcance de un estudiante se obtienen **modelos estructurales
@@ -48,7 +48,7 @@ flowchart TB
     subgraph CAL["Control estructural: Chignolin"]
         direction TB
         C1["Estructura experimental"] --> C2["MD 450 ns"]
-        C2 --> C3["Recupera la estructura: representativa 0.85 A<br/>AlphaFold2 0.90 A"]
+        C2 --> C3["Conserva la estructura: representativa 0.85 A<br/>AlphaFold2, que predijo a ciegas, 0.90 A"]
         C2 --> C4["Cinética no medible a 340 K"]
     end
 
@@ -112,9 +112,9 @@ cuidado con que delimita lo que **no** afirma.
 
 | ✅ Lo que el trabajo **sí** muestra | 🚧 Lo que el trabajo **no** afirma |
 |---|---|
-| La estructura de Chignolin se recupera: representativa **0.85 Å** frente a **0.90 Å** de AlphaFold2 | Que se mida la **cinética** de plegamiento (exige microsegundos) |
+| La estructura representativa de Chignolin queda a **0.85 Å** de la experimental (mediana 0.91 Å); AlphaFold2, que sí predijo a ciegas, **0.90 Å** | Que se mida la **cinética** de plegamiento (exige microsegundos) |
 | Un modelo de PTR1 **estable 100 ns**; esqueleto y anclaje de NADPH reproducibles | Que el modelo **reemplace** una estructura experimental |
-| **Convergencia** de 4 vías independientes a < 1 Å | Que AF3 sea **validación ciega** (usó cristales como plantilla) |
+| Acuerdo de 4 reconstrucciones a < 1 Å | Que sean **independientes** (tres pasan por 1E92) o que AF3 sea **validación ciega** (usó cristales como plantilla) |
 | Un pipeline **abierto y reproducible** en 1 GPU de consumo | **Actividad** catalítica: «geometría compatible» ≠ actividad |
 | La Tyr114 como **posible** contacto de especie (preliminar) | **Epistasis** ni un rasgo determinante (una sola réplica) |
 | Una base metodológica para enfermedades desatendidas | Un **fármaco** ni una intervención terapéutica |
@@ -154,7 +154,7 @@ la reacción química); **modelo estructural ensamblado** (no una estructura exp
 el hecho de que a 340 K Chignolin no se despliegue en 15 ns **no permite concluir que el
 campo de fuerza la sobre-estabilice**: trayectorias cortas que parten del estado plegado se
 mantienen plegadas con casi cualquier campo. El límite que este trabajo cuantifica es el
-**tiempo de simulación acumulable**, no el campo de fuerza.
+**diseño de muestreo**: trayectorias de 15 ns, todas iniciadas desde el estado plegado.
 
 > **Corrección metodológica (jul 2026).** Un barrido previo sugería que Chignolin tampoco se
 > desplegaba a 400 K. Ese barrido corría a **volumen constante**, lo que imponía una

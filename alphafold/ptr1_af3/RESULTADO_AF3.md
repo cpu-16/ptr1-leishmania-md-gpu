@@ -1,4 +1,4 @@
-# Validación AlphaFold 3: PTR1 tetrámero holo de *L. panamensis*
+# Chequeo de consistencia con AlphaFold 3: PTR1 tetrámero holo de *L. panamensis*
 
 **Job:** `PTR1_Lpanamensis_tetramero_NADPH` (alphafoldserver.com, 31 may 2026)
 **Entrada:** 4×288 residuos (UniProt A0A088SA10) + 4× NADPH (CCD_NDP). Modelo de mayor confianza: `model_0`.
@@ -20,9 +20,9 @@ AF3 **usó como plantillas 4 estructuras cristalográficas de PTR1**: **1E92, 2X
 
 **Lo que SÍ vale (consistencia / triangulación):**
 - Nuestro modelo ensamblado + 100 ns de MD **se mantuvo consistente** con lo que AF3 predice usando las mejores plantillas experimentales (RMSD 0.73 Å). → la MD no derivó a algo artificial.
-- Nuestro **NADPH trasplantado** (0.9 Å de AF3, 0.3 Å del cristal) está **bien colocado**. → valida el montaje del cofactor.
+- Nuestro **NADPH trasplantado** (0.9 Å de AF3, 0.3 Å del cristal) está **bien colocado**. → consistente con el montaje del cofactor, no es validación independiente.
 - El **tetrámero** se ensambla con confianza (ipTM 0.95).
-- Cuatro vías convergen a <1 Å: cristal 1E92 + modelo ensamblado + MD + AF3. Argumento de robustez para la JIC.
+- Cuatro reconstrucciones coinciden a <1 Å: cristal 1E92 + modelo ensamblado + MD + AF3. No son independientes: tres pasan por 1E92.
 
 **Lo que NO vale:**
 - NO es validación *independiente* (AF3 usó 1E92 como plantilla; la coincidencia es esperada).

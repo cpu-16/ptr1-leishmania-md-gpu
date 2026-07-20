@@ -13,8 +13,27 @@ NO modifica los scripts del póster (que sí llevan título): escribe copias nue
 
 Uso:  conda run -n jic-folding python src/figuras_articulo_jic_limpias.py
 Salida: results/figures/*_limpia.png  (300 dpi)
+
+COPIA SUPERADA (19 jul 2026). NO EJECUTAR: aborta abajo.
+
+Esta copia se quedo en la etapa en que la ocupancia se leia por CADENA del tetramero (sitios
+A-D), con la matriz escrita a mano, y de ahi salia el rango «83-100 %». Las cuatro cadenas
+comparten un mismo sistema y estan correlacionadas: NO son replicas, y presentar ese rango como
+conservacion del sitio activo es una afirmacion que el proyecto retracto.
+
+Lo vigente son cuatro replicas independientes de 100 ns, con media y desviacion ENTRE replicas:
+Ser112-sustrato 74.9 +/- 19.9 %, Tyr194-sustrato 90.3 +/- 18.1 %, Lys198-NADPH 100.0 +/- 0.0 %,
+Arg18-NADPH 89.1 +/- 6.5 %; y en la replica 3, sitio B, la distancia cofactor-sustrato se queda
+en 16.7 A de media. O sea: el anclaje del cofactor se repite, el contacto con el sustrato no.
+
+El generador vivo lee esas cifras de `replicas_summary.json` y vive en el arbol de trabajo, no
+aqui. Esta copia se conserva solo como registro de como se hicieron las figuras publicadas.
 """
 import os
+import sys
+
+sys.exit("COPIA SUPERADA: sus ocupancias son por cadena del tetramero (83-100 %), no por "
+         "replica. Lo vigente son 4 replicas independientes. Ver el docstring de este archivo.")
 
 import matplotlib
 matplotlib.use("Agg")
