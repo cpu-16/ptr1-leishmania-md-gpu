@@ -21,6 +21,21 @@ humano, cuya estructura aún no se ha determinado experimentalmente.
 
 ---
 
+<div align="center">
+
+### 🎥 El proyecto en video
+
+[![Ver el video en YouTube](https://img.shields.io/badge/%E2%96%B6%20Ver%20el%20video-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/h8QkZjxqnE4)
+
+**De AlphaFold a la dinámica molecular con una GPU de consumo**
+Chignolin y PTR1 de *Leishmania panamensis*
+
+`https://youtu.be/h8QkZjxqnE4`
+
+</div>
+
+---
+
 ## ✨ Lo que logramos
 
 |  |  |
@@ -197,7 +212,6 @@ hallazgo clínico. El mismo flujo, abierto, reproducible y de bajo costo, puede 
 ├── ptr1/               # Aplicación: PTR1 de L. panamensis (construcción, MD, mutantes, análisis)
 ├── alphafold/          # chignolin_af2/ (ColabFold) · ptr1_af3/ (AlphaFold Server + plantillas)
 ├── media/              # Animaciones de las trayectorias (mp4 + gif)
-├── paper/              # Artículo JIC (versión ciega vigente, PDF)
 ├── figures/            # Figuras científicas 300 dpi (ver figures/README.md)
 ├── docs/               # results_summary.md (métricas) · reproducibility.md (cómo correr)
 ├── assets/             # banner del repositorio
@@ -225,5 +239,5 @@ OpenMM · AMBER ff14SB / GAFF2 · TIP3P · AlphaFold2 (ColabFold) · AlphaFold3 
 ## 📄 Licencia y cómo citar
 
 Código bajo [MIT](LICENSE); figuras y animaciones bajo [CC-BY-4.0](LICENSE-figures).
-Para citar, ver [`CITATION.cff`](CITATION.cff) y el artículo del proyecto en `paper/`
-(Jornada de Iniciación Científica 2026, en evaluación).
+Para citar, ver [`CITATION.cff`](CITATION.cff). El artículo del proyecto está en evaluación
+(Jornada de Iniciación Científica 2026) y se publicará aquí una vez concluya el proceso.
