@@ -43,7 +43,7 @@ Chignolin y PTR1 de *Leishmania panamensis*
 | **0.85 Å** | la estructura representativa de la MD frente a la experimental, contra **0.90 Å** de AlphaFold2 (mediana del conjunto: 0.91 Å) |
 | **100 ns** | tetrámero holo de PTR1 **estable**, con ligandos retenidos; esqueleto y anclaje de NADPH reproducibles |
 | **75–100 %** | ocupancia de la red de contactos del sitio activo (sustrato, cofactor y las catalíticas Tyr194/Lys198); el contacto con el sustrato **varía entre réplicas** |
-| **< 1 Å** | acuerdo entre cuatro reconstrucciones: cristal 1E92 · modelo ensamblado · MD · AlphaFold3. **No son independientes**: tres pasan por 1E92 |
+| **0.28–1.05 Å** | coincidencia entre cuatro reconstrucciones: cristal 1E92 · modelo ensamblado · MD · AlphaFold3. **No son independientes**: tres pasan por 1E92, así que es un chequeo de consistencia |
 | **1× RTX 4060** | todo el estudio en una GPU de consumo (~US$300), con **100 % software libre** |
 
 En corto: con recursos al alcance de un estudiante se obtienen **modelos estructurales
@@ -73,7 +73,7 @@ flowchart TB
         P2 --> P3["MD 100 ns"]
         P3 --> P4["Red del sitio activo 75-100%; sustrato variable"]
         P3 --> P5["Controles in silico: variantes Tyr114"]
-        P4 --> P6["Triangulación sub-1 A:<br/>cristal, modelo, MD, AF3"]
+        P4 --> P6["Chequeo de consistencia:<br/>cristal, modelo, MD, AF3"]
     end
 
     MET -.-> CAL
@@ -129,7 +129,7 @@ cuidado con que delimita lo que **no** afirma.
 |---|---|
 | La estructura representativa de Chignolin queda a **0.85 Å** de la experimental (mediana 0.91 Å); AlphaFold2, que sí predijo a ciegas, **0.90 Å** | Que se mida la **cinética** de plegamiento (exige microsegundos) |
 | Un modelo de PTR1 **estable 100 ns**; esqueleto y anclaje de NADPH reproducibles | Que el modelo **reemplace** una estructura experimental |
-| Acuerdo de 4 reconstrucciones a < 1 Å | Que sean **independientes** (tres pasan por 1E92) o que AF3 sea **validación ciega** (usó cristales como plantilla) |
+| Las 4 reconstrucciones se superponen entre **0.28 y 1.05 Å** | Que sean **independientes** (tres pasan por 1E92) o que AF3 sea **validación ciega** (usó cristales como plantilla) |
 | Un pipeline **abierto y reproducible** en 1 GPU de consumo | **Actividad** catalítica: «geometría compatible» ≠ actividad |
 | La Tyr114 como **posible** contacto de especie (preliminar) | **Epistasis** ni un rasgo determinante (una sola réplica) |
 | Una base metodológica para enfermedades desatendidas | Un **fármaco** ni una intervención terapéutica |
@@ -153,8 +153,11 @@ cuidado con que delimita lo que **no** afirma.
   repiten entre réplicas (RMSD Cα monomérico 1.70–2.12 Å), pero los contactos con el sustrato
   varían (en la réplica 3 un sitio queda a 16.7 Å de media); la **red de contactos del sitio activo
   ocupa 75–100 %** del tiempo en los cuatro sitios («geometría compatible con la catálisis», _no_ actividad).
-- **Convergencia estructural** (no validación ciega): MD vs 1E92 **1.05 Å**; AF3 vs MD
-  0.73 Å y AF3 vs 1E92 0.28 Å: cuatro caminos a < 1 Å (ver sección AlphaFold).
+- **Coincidencia estructural**, que es un chequeo de consistencia y **no** una validación
+  independiente: el modelo se superpone al cristal **1E92** con un RMSD de **1.05 Å** y a la
+  predicción de **AlphaFold3** a **0.73 Å** (AF3 vs 1E92: 0.28 Å). Como AF3 también usó
+  plantillas experimentales de PTR1, su coincidencia no confirma nada a ciegas (ver sección
+  AlphaFold).
 - La Tyr114 de _L. panamensis_ (sustitución F114Y respecto a _L. major_) parece formar un
   **contacto polar accesorio** con el sustrato; controles _in silico_ (30 ns) lo señalan
   como **accesorio, no esencial**. Es resultado de **una sola réplica**, o sea preliminar.

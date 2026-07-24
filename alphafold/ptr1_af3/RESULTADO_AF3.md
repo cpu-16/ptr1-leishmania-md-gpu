@@ -22,12 +22,12 @@ AF3 **usó como plantillas 4 estructuras cristalográficas de PTR1**: **1E92, 2X
 - Nuestro modelo ensamblado + 100 ns de MD **se mantuvo consistente** con lo que AF3 predice usando las mejores plantillas experimentales (RMSD 0.73 Å). → la MD no derivó a algo artificial.
 - Nuestro **NADPH trasplantado** (0.9 Å de AF3, 0.3 Å del cristal) está **bien colocado**. → consistente con el montaje del cofactor, no es validación independiente.
 - El **tetrámero** se ensambla con confianza (ipTM 0.95).
-- Cuatro reconstrucciones coinciden a <1 Å: cristal 1E92 + modelo ensamblado + MD + AF3. No son independientes: tres pasan por 1E92.
+- Cuatro reconstrucciones coinciden entre 0.28 y 1.05 Å: cristal 1E92 + modelo ensamblado + MD + AF3. No son independientes: tres pasan por 1E92.
 
 **Lo que NO vale:**
 - NO es validación *independiente* (AF3 usó 1E92 como plantilla; la coincidencia es esperada).
 - NO prueba nada nuevo sobre rasgos específicos de *panamensis* (Tyr114, etc.) más allá de lo que plantilla+secuencia ya implican.
 
-**Conclusión:** chequeo de consistencia *aprobado*: el modelo es sólido y de calidad publicable, pero presentarlo como "convergencia con solapamiento de método", no como confirmación a ciegas.
+**Conclusión:** chequeo de consistencia *aprobado*: el modelo es sólido y de calidad publicable, pero presentarlo como coincidencia con solapamiento de método, no como confirmación a ciegas.
 
 Figura: `af3_vs_cristal_monomero.png`.
