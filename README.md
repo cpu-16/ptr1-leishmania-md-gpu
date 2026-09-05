@@ -32,6 +32,15 @@ Chignolin y PTR1 de *Leishmania panamensis*
 
 `https://youtu.be/h8QkZjxqnE4`
 
+### 📄 Artículo completo del proyecto
+
+[![Leer el artículo en PDF](https://img.shields.io/badge/Leer%20el%20art%C3%ADculo-PDF-1F2D4E?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](docs/ARTICULO_JIC2026_final.pdf)
+
+**De AlphaFold a la dinámica molecular accesible en una GPU de consumo:**
+control estructural con Chignolin y aplicación a PTR1 de *Leishmania panamensis*.
+
+[**Abrir el PDF**](docs/ARTICULO_JIC2026_final.pdf) · [Descargar el artículo](https://github.com/cpu-16/ptr1-leishmania-md-gpu/raw/refs/heads/main/docs/ARTICULO_JIC2026_final.pdf)
+
 </div>
 
 ---
@@ -242,5 +251,5 @@ OpenMM · AMBER ff14SB / GAFF2 · TIP3P · AlphaFold2 (ColabFold) · AlphaFold3 
 ## 📄 Licencia y cómo citar
 
 Código bajo [MIT](LICENSE); figuras y animaciones bajo [CC-BY-4.0](LICENSE-figures).
-Para citar, ver [`CITATION.cff`](CITATION.cff). El artículo del proyecto está en evaluación
-(Jornada de Iniciación Científica 2026) y se publicará aquí una vez concluya el proceso.
+Para citar, ver [`CITATION.cff`](CITATION.cff). El [artículo completo del proyecto (PDF)](docs/ARTICULO_JIC2026_final.pdf)
+está disponible en este repositorio (Jornada de Iniciación Científica 2026).
